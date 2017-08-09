@@ -1,0 +1,146 @@
+﻿<local:BasePage x:TypeArguments="core:QuizViewModel" x:Class="Quiz.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:encoding="UTF-8"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quiz"
+      xmlns:core="clr-namespace:Quiz.Core;assembly=Quiz.Core"
+      mc:Ignorable="d" 
+      x:Name="Page"
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="Quiz">
+
+    <Border Padding="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <!-- Title bar -->
+            <Border Grid.Row="0"
+                    Margin="70 0">
+                
+                <TextBlock Text="QUIZ" 
+                           FontSize="{StaticResource FontSizeTitle}"
+                           FontFamily="{StaticResource Pacifico}"
+                           HorizontalAlignment="Center" />
+            </Border>
+
+            <!-- Questions field -->
+            <Border Grid.Row="1" 
+                    Margin="50"
+                    Padding="30"
+                    CornerRadius="12"
+                    Background="{StaticResource ForegroundLightBrush}">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Start button -->
+                    <Button Content="Start" 
+                            Grid.RowSpan="5" 
+                            Margin="70"
+                            FontSize="{StaticResource FontSizeSmallerTitle}"
+                            Panel.ZIndex="1"
+                            Command="{Binding StartCommand}"
+                            Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"/>
+                    
+                    <!-- Question counter -->
+                    <TextBlock Text="{Binding QuestionCount}"
+                               Grid.Row="0"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeAverage}"
+                               FontFamily="{StaticResource LatoBold}"
+                               TextAlignment="Left"
+                               Margin="6 0 0 0" />
+                    
+                    <!-- Question -->
+                    <TextBlock Text="{Binding Question}"
+                               Grid.Row="0"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeAverage}"
+                               FontFamily="{StaticResource LatoRegular}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="22 0" />
+
+                    <!-- Answer A -->
+                    <TextBlock Text="{Binding AnswerA}"
+                               Grid.Row="1"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeMedium}"
+                               FontFamily="{StaticResource LatoRegular}" />
+
+                    <!-- Answer B -->
+                    <TextBlock Text="{Binding AnswerB}"
+                               Grid.Row="2"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeMedium}"
+                               FontFamily="{StaticResource LatoRegular}" />
+                    <!-- Answer C -->
+                    <TextBlock Text="{Binding AnswerC}"
+                               Grid.Row="3"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeMedium}"
+                               FontFamily="{StaticResource LatoRegular}" />
+
+                    <!-- Answer D -->
+                    <TextBlock Text="{Binding AnswerD}"  
+                               Grid.Row="4"
+                               Visibility="{Binding IsStartVisible, Converter={local:BooleanToVisiblityConverter}}"
+                               FontSize="{StaticResource FontSizeMedium}"
+                               FontFamily="{StaticResource LatoRegular}" />
+                </Grid>
+            </Border>
+
+            <!-- Answers buttons -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+
+                </Grid.ColumnDefinitions>
+                
+                <Button Content="A" 
+                        Margin="20 0"
+                        Grid.Column="0"
+                        Command="{Binding AnswerACommand}"
+                        IsEnabled="{Binding IsAnswerAVisible}"
+                        Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+                <Button Content="B" 
+                        Margin="20 0" 
+                        Grid.Column="2"
+                        IsEnabled="{Binding IsAnswerBVisible}"
+                        Command="{Binding AnswerBCommand}"
+                        Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+                <Button Content="C" 
+                        Margin="20 0" 
+                        Grid.Column="4"
+                        IsEnabled="{Binding IsAnswerCVisible}"
+                        Command="{Binding AnswerCCommand}"
+                        Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+                <Button Content="D" 
+                        Margin="20 0"
+                        Grid.Column="6"
+                        IsEnabled="{Binding IsAnswerDVisible}"
+                        Command="{Binding AnswerDCommand}"
+                        Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+
+            </Grid>
+        </Grid>
+    </Border>
+</local:BasePage>

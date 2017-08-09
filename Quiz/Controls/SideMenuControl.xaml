@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Quiz.SideMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz"
+             xmlns:core="clr-namespace:Quiz.Core;assembly=Quiz.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+
+            <!-- Main background -->
+            <Border Background="{StaticResource ForegroundLightBrush}">
+
+                <!-- Content -->
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Popup Overlay -->
+                    <Border Background="Transparent" 
+                            Grid.RowSpan="2"
+                            Panel.ZIndex="1"
+                            Visibility="{Binding AnyPopupVisible, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"
+                            >
+                        <Border.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" Command="{Binding PopupClickawayCommand}" />
+                        </Border.InputBindings>
+                    </Border>
+
+                    <!-- Top Menu -->
+                    <Grid Height="50" 
+                          Background="{StaticResource WordBlueBrush}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- User's nickname -->
+                        <TextBlock Text="{Binding ApplicationViewModel.Username, 
+                                                  Source={x:Static local:ViewModelLocator.Instance}, FallbackValue=User}"
+                                   VerticalAlignment="Center"
+                                   FontFamily="{StaticResource LatoBold}"
+                                   Foreground="{StaticResource WordDarkBlueBrush}"
+                                   FontSize="{StaticResource FontSizeLarge}"
+                                   Margin="10 0"
+                                   TextTrimming="CharacterEllipsis" />
+
+                        <!-- Drop menu button -->
+                        <Button Grid.Column="2" 
+                                Foreground="{StaticResource ForegroundLightBrush}" 
+                                Style="{StaticResource IconButton}" 
+                                Content="{StaticResource FontAwesomeEllipsisVerticalIcon}"
+                                Command="{Binding DropMenuButtonCommand}" />
+
+                    </Grid>
+                    
+                    <!-- Drop Menu Popup -->
+                    <local:BubbleContent 
+                            Grid.Row="1"
+                            Panel.ZIndex="1"
+                            DataContext="{Binding DropMenu}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            local:AnimateSlideInFromBottomProperty.Value="{Binding Path=DataContext.DropMenuVisible, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                            />
+                    
+                    <!-- The user content -->
+                    <ContentPresenter Grid.Row="1" />
+
+                </Grid>
+
+            </Border>
+
+        </ControlTemplate>
+    </UserControl.Template>
+
+</UserControl>

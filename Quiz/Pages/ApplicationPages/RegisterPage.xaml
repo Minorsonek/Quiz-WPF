@@ -1,0 +1,66 @@
+﻿<local:BasePage x:TypeArguments="core:RegisterViewModel" x:Class="Quiz.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quiz"
+      xmlns:core="clr-namespace:Quiz.Core;assembly=Quiz.Core"
+      mc:Ignorable="d"
+      x:Name="Page"
+      d:DesignHeight="566" d:DesignWidth="487"
+      Title="RegisterPage">
+
+    <Border>
+        <Grid>
+
+            <!-- Main content scroll -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+
+                    <!-- Main content white box -->
+                    <Border Background="{StaticResource ForegroundLightBrush}" 
+                            CornerRadius="10"
+                            Padding="15 50 15 15"
+                            Width="330"
+                            Margin="50 50 50 0">
+
+                        <StackPanel>
+
+                            <!-- Sign in header -->
+                            <TextBlock Text="Witaj w Quizie!" 
+                                   FontSize="{StaticResource FontSizeLarge}" 
+                                   FontFamily="{StaticResource LatoRegular}"
+                                   Foreground="{StaticResource WordBlueBrush}" />
+
+                            <!-- Sign in subtext-->
+                            <TextBlock Text="Podpisz się poniżej i rozpocznij" 
+                                       FontSize="{StaticResource FontSizeRegular}"
+                                       Foreground="{StaticResource ForegroundDarkBrush}"
+                                       Margin="0 0 0 20"
+                                       />
+
+                            <!-- Username -->
+                            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                                     Tag="Twoje imię" 
+                                     local:IsFocusedProperty.Value="True" 
+                                     x:Name="UsernameTextBox" />
+
+                            <!-- Start button -->
+                            <Button Content="Rozpocznij" 
+                                    IsDefault="True"
+                                    IsEnabled="{Binding ElementName=UsernameTextBox,Path=Text.Length}"
+                                    Command="{Binding ToMainPageCommand}"
+                                    HorizontalAlignment="Center" />
+
+                        </StackPanel>
+
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+
+</local:BasePage>

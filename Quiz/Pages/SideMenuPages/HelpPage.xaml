@@ -1,0 +1,20 @@
+﻿<local:BasePage x:TypeArguments="core:SideMenuViewModel" x:Class="Quiz.HelpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Quiz"
+      xmlns:core="clr-namespace:Quiz.Core;assembly=Quiz.Core"
+      mc:Ignorable="d" 
+      Title="HelpPage">
+
+    <Grid>
+        <TextBlock Grid.Row="1" 
+                   Text="{Binding HelpText, FallbackValue=Wystapil blad przepraszamy Test test test test test}"
+                   TextTrimming="WordEllipsis"
+                   TextWrapping="Wrap"
+                   FontFamily="{StaticResource LatoRegular}"
+                   FontSize="{StaticResource FontSizeMedium}"
+                   Margin="20" />
+    </Grid>
+</local:BasePage>

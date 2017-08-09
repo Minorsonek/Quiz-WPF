@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Quiz.VerticalMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz"
+             xmlns:core="clr-namespace:Quiz.Core;assembly=Quiz.Core"
+             mc:Ignorable="d">
+    <ItemsControl ItemsSource="{Binding Items}"
+                  Background="White">
+
+        <!-- Item template -->
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+
+                <Grid>
+
+                    <!-- Menu Item -->
+                    <Border Background="{StaticResource ForegroundLightBrush}"
+                            CornerRadius="8">
+
+                        <Border.Triggers>
+                            <!-- Hover over blue -->
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource WordBlue}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                        <ColorAnimation To="{StaticResource ForegroundLight}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Foreground.Color" 
+                                                        Storyboard.TargetName="icon"
+                                                        />
+                                        <ColorAnimation To="{StaticResource ForegroundLight}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Foreground.Color" 
+                                                        Storyboard.TargetName="text"
+                                                        />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <!-- Hover out revert -->
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource ForegroundLight}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                        <ColorAnimation To="{StaticResource ForegroundDark}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Foreground.Color" 
+                                                        Storyboard.TargetName="icon"
+                                                        />
+                                        <ColorAnimation To="{StaticResource ForegroundVeryDark}" 
+                                                        Duration="0:0:0" 
+                                                        Storyboard.TargetProperty="Foreground.Color" 
+                                                        Storyboard.TargetName="text"
+                                                        />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+
+                        <!-- Fire ChangePageCommand when border is clicked -->
+                        <Border.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" Command="{Binding ChangePageCommand}" />
+                        </Border.InputBindings>
+
+                        <!-- Main grid content with icon and text -->
+                        <Grid Margin="8">
+
+                            <Grid.ColumnDefinitions>
+                                <!-- Icon -->
+                                <ColumnDefinition Width="25" />
+                                <!-- Text -->
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Icon -->
+                            <TextBlock Name="icon"
+                                    Padding="5"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontFamily="{StaticResource FontAwesome}"
+                                    Text="{Binding Icon, Converter={local:IconTypeToFontAwesomeConverter}}"
+                                    Foreground="{StaticResource ForegroundDarkBrush}"
+                                    />
+
+                            <!-- Text -->
+                            <TextBlock Name="text"
+                                    Grid.Column="1"
+                                    Margin="5 0 5 0"
+                                    Foreground="{StaticResource ForegroundVeryDarkBrush}"
+                                    FontFamily="{StaticResource LatoRegular}"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Text}" />
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+
+    </ItemsControl>
+</UserControl>
+

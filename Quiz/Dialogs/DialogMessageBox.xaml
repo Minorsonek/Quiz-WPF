@@ -1,0 +1,25 @@
+﻿<local:BaseDialogUserControl x:Class="Quiz.DialogMessageBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz"
+             mc:Ignorable="d">
+    
+    <StackPanel Background="{StaticResource ForegroundLightBrush}">
+        <TextBlock Text="{Binding Message, FallbackValue=Message}"
+                   Padding="5"
+                   FontSize="{StaticResource FontSizeRegular}"
+                   Foreground="{StaticResource ForegroundVeryDarkBrush}"
+                   HorizontalAlignment="Center"
+                   />
+
+        <Button Content="{Binding OkText, FallbackValue=OK}"
+                FontSize="{StaticResource FontSizeAverage}"
+                Command="{Binding CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BaseDialogUserControl}}}"
+                HorizontalAlignment="Center"
+                />
+
+    </StackPanel>
+    
+</local:BaseDialogUserControl>

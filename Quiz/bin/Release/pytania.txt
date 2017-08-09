@@ -1,0 +1,114 @@
+Za pomoca ktorego atrybutu sekcji <body> mo¿na ustawiæ kolor ju¿ odwiedzonego hiperlacza na stronie www? (HTML)
+reflink
+ulink
+alink
+vlink
+D2
+Kolor czcionki ustawimy atrybutem: (CSS)
+font-color
+text-color
+face-color
+color
+D3
+Ktory z ponizszych atrybutow definiuje blok (ramke)? (HTML)
+<td>
+<table>
+<p>
+<div>
+D2
+Co okreœla atrybut opacity? (CSS)
+przezroczystosc
+wielkosc liter
+cien pod tekstem
+wyrownanie w pionie
+A4
+Ktory z ponizszych tagow utworzy liste wypunktowana? (HTML)
+<ul type="disc">
+<li type="i">
+<ol type="1">
+<dl type="rect">
+A4
+Ktory z atrybutow znacznika <body> sluzy do ustawienia obrazka jako tla? (HTML)
+background-img
+bgimg
+bgimage
+background
+D2
+Ktory atrybut znacznika <a> ustawia adres przekierowania po kliknieciu na hiperlacze? (HTML)
+adress
+href
+src
+file
+B1
+Margines dolny okresla sie atrybutem: (CSS)
+margin-lowercase
+margin-low
+margin-below
+margin-bottom
+D5
+Ktory z tych kolorow jest poprawnie zapisany? (HTML)
+#111111
+#cAcAcA
+#H3H3H3
+#yellow
+A2
+Ktory atrybut hiperlacza ustawia podpowiedz, ktora zobaczy uzytkownik po najechaniu kursorem na link? (HTML)
+hint
+title
+alt
+text
+C3
+W jaki sposob zmienia tekst nastêpujacy zapis -> text-transform: uppercase; ? (CSS)
+Zamienia wszystkie litery na duze
+Zamienia wszystkie litery na male
+Zamienia polskie znaki na znaki bez ogonkow
+Zamienia tylko pierwsz¹ literê zdania na du¿a
+A4
+Ktory z ponizszych naglowkow jest zapisany najmniejsza czcionka? (HTML)
+<h0>
+<h6>
+<h10>
+<h3>
+B2
+Ktory z ponizszych fragmentow kodu zawiera blad? (Javascript)
+var liczba *= 14
+var liczba := 14
+var liczba %= 14
+var liczba -= 14
+B4
+Ktore slowo kluczowe sluzy do usuniêcia calej tabeli z bazy? (MySQL)
+DELTREE
+DELETE
+DROP
+DISCHARGE
+B3
+Typ zmiennych o nazwie float przechowuje: (C++)
+liczby calkowite
+napisy
+liczby zmiennoprzecinkowe
+pojedyncze znaki
+C5
+Wstrzymanie wykonania programu na czas 2 sekund uzyskasz instrukcja: (C++)
+Wait(2000)
+Stop(2000)
+Delay(2000)
+Sleep(2000)
+D6
+Ktora deklaracja jest zapisana poprawnie? (C++)
+int x;
+integer x;
+x:integer;
+x=integer;
+A1
+Z jakiego przedzialu zostanie wylosowana liczba: rand()%10+2 (C++)
+0..9
+2..9
+2..11
+0..11
+C2
+Ile razy wykona sie petla: for (int i=4; i>=-2; i--) (C++)
+ani razu
+nieskonczenie wiele razy
+6
+7
+D4

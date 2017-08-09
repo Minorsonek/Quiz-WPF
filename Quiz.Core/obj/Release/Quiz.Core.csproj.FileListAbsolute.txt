@@ -1,0 +1,7 @@
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\bin\Release\Quiz.Core.dll
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\bin\Release\Quiz.Core.pdb
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\bin\Release\Ninject.dll
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\bin\Release\Ninject.xml
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.csprojResolveAssemblyReference.cache
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.dll
+C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.pdb
