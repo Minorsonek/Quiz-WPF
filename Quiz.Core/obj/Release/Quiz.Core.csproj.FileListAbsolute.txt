@@ -5,3 +5,4 @@ C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\bin\Rel
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.csprojResolveAssemblyReference.cache
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.dll
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.pdb
+C:\Users\MinorSonek\documents\visual studio 2017\Projects\Quiz\Quiz.Core\obj\Release\Quiz.Core.csproj.CoreCompileInputs.cache

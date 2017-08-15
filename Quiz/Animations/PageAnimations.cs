@@ -63,5 +63,53 @@ namespace Quiz
             // Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
         }
+
+        /// <summary>
+        /// Fades a page in 
+        /// </summary>
+        /// <param name="page">The page to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task FadeInAsync(this Page page, float seconds)
+        {
+            // Create the storyboard
+            var sb = new Storyboard();
+
+            // Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            // Start animating
+            sb.Begin(page);
+
+            // Make page visible
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Fades a page out 
+        /// </summary>
+        /// <param name="page">The page to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task FadeOutAsync(this Page page, float seconds)
+        {
+            // Create the storyboard
+            var sb = new Storyboard();
+
+            // Add fade out animation
+            sb.AddFadeOut(seconds);
+
+            // Start animating
+            sb.Begin(page);
+
+            // Make page visible
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
     }
 }

@@ -33,17 +33,5 @@ namespace Quiz.Core
         public char AnswerLetter { get; set; } = 'A';
 
         #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public AnswersItemViewModel()
-        {
-
-        }
-
-        #endregion
     }
 }

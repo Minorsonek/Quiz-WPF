@@ -105,6 +105,7 @@
     <Compile Include="Pages\ApplicationPages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Base\BaseSideMenuPage.cs" />
     <Compile Include="Pages\SideMenuPages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>

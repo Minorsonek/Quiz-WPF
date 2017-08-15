@@ -50,8 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\ApplicationPage.cs" />
-    <Compile Include="DataModels\Constants.cs" />
     <Compile Include="DataModels\ElementHorizontalAlignment.cs" />
+    <Compile Include="DataModels\FilePath.cs" />
     <Compile Include="DataModels\IconType.cs" />
     <Compile Include="DataModels\QuizQuestionModel.cs" />
     <Compile Include="Expressions\ExpressionHelpers.cs" />

@@ -90,6 +90,13 @@ namespace Quiz
                     await this.SlideAndFadeInFromRightAsync(SlideSeconds);
 
                     break;
+
+                case PageAnimation.FadeIn:
+
+                    // Start the animation
+                    await this.FadeInAsync(SlideSeconds);
+
+                    break;
             }
         }
 
@@ -109,6 +116,13 @@ namespace Quiz
 
                     // Start the animation
                     await this.SlideAndFadeOutToLeftAsync(SlideSeconds);
+
+                    break;
+
+                case PageAnimation.FadeOut:
+
+                    // Start the animation
+                    await this.FadeOutAsync(SlideSeconds);
 
                     break;
             }

@@ -145,37 +145,42 @@ namespace Quiz.Core
         public QuizViewModel()
         {
             // Create commands
-            AnswerACommand = new RelayCommand(async () => await AnswerAAsync());
-            AnswerBCommand = new RelayCommand(async () => await AnswerBAsync());
-            AnswerCCommand = new RelayCommand(async () => await AnswerCAsync());
-            AnswerDCommand = new RelayCommand(async () => await AnswerDAsync());
-            StartCommand = new RelayCommand(async () => await StartQuizAsync());
+            AnswerACommand = new RelayCommand(async () => await UserAnswerAsync('A'));
+            AnswerBCommand = new RelayCommand(async () => await UserAnswerAsync('B'));
+            AnswerCCommand = new RelayCommand(async () => await UserAnswerAsync('C'));
+            AnswerDCommand = new RelayCommand(async () => await UserAnswerAsync('D'));
+            StartCommand = new RelayCommand(StartQuiz);
         }
 
         #endregion
 
-        #region Answers logic
+        #region Command Methods
 
-        private async Task AnswerAAsync()
+        /// <summary>
+        /// Handles user's answer and checks if it is correct
+        /// </summary>
+        /// <param name="answer">User answer as a letter (A, B, C or D)</param>
+        /// <returns></returns>
+        private async Task UserAnswerAsync(char answer)
         {
             await Task.Delay(100);
 
             // Check if user answered correctly
-            if (QuestionList[QuestionCount-1].RightAnswer == 'A')
+            if (QuestionList[QuestionCount - 1].RightAnswer == answer)
             {
                 // If yes, add points to his score
-                UserScore += QuestionList[QuestionCount-1].Points;
+                UserScore += QuestionList[QuestionCount - 1].Points;
             }
 
             // Add user answer to list
             AnswersViewModel.Instance.Items.Add
-                (
-                    new AnswersItemViewModel
-                    {
-                        AnswerLetter = 'A',
-                        AnswerNumber = QuestionCount
-                    }
-                );
+            (
+                new AnswersItemViewModel
+                {
+                    AnswerLetter = answer,
+                    AnswerNumber = QuestionCount
+                }
+            );
 
             // Check if it was last question, if yes end quiz
             if (QuestionCount == QuestionList.Count) EndQuiz();
@@ -186,109 +191,12 @@ namespace Quiz.Core
                 ShowQuestion(QuestionCount);
             }
         }
-
-        private async Task AnswerBAsync()
-        {
-            await Task.Delay(100);
-
-            // Check if user answered correctly
-            if (QuestionList[QuestionCount-1].RightAnswer == 'B')
-            {
-                // If yes, add points to his score
-                UserScore += QuestionList[QuestionCount-1].Points;
-            }
-
-            // Add user answer to list
-            AnswersViewModel.Instance.Items.Add
-                (
-                    new AnswersItemViewModel
-                    {
-                        AnswerLetter = 'B',
-                        AnswerNumber = QuestionCount
-                    }
-                );
-
-            // Check if it was last question, if yes end quiz
-            if (QuestionCount == QuestionList.Count) EndQuiz();
-            else
-            {
-                // Step into next question
-                QuestionCount++;
-                ShowQuestion(QuestionCount);
-            }
-        }
-
-        private async Task AnswerCAsync()
-        {
-            await Task.Delay(100);
-
-            // Check if user answered correctly
-            if (QuestionList[QuestionCount-1].RightAnswer == 'C')
-            {
-                // If yes, add points to his score
-                UserScore += QuestionList[QuestionCount-1].Points;
-            }
-
-            // Add user answer to list
-            AnswersViewModel.Instance.Items.Add
-                (
-                    new AnswersItemViewModel
-                    {
-                        AnswerLetter = 'C',
-                        AnswerNumber = QuestionCount
-                    }
-                );
-
-            // Check if it was last question, if yes end quiz
-            if (QuestionCount == QuestionList.Count) EndQuiz();
-            else
-            {
-                // Step into next question
-                QuestionCount++;
-                ShowQuestion(QuestionCount);
-            }
-        }
-
-        private async Task AnswerDAsync()
-        {
-            await Task.Delay(100);
-
-            // Check if user answered correctly
-            if (QuestionList[QuestionCount-1].RightAnswer == 'D')
-            {
-                // If yes, add points to his score
-                UserScore += QuestionList[QuestionCount-1].Points;
-            }
-
-            // Add user answer to list
-            AnswersViewModel.Instance.Items.Add
-                (
-                    new AnswersItemViewModel
-                    {
-                        AnswerLetter = 'D',
-                        AnswerNumber = QuestionCount
-                    }
-                );
-
-            // Check if it was last question, if yes end quiz
-            if (QuestionCount == QuestionList.Count) EndQuiz();
-            else
-            {
-                // Step into next question
-                QuestionCount++;
-                ShowQuestion(QuestionCount);
-            }
-        }
-
-        #endregion
-
-        #region Procedures
 
         /// <summary>
         /// Run to start the Quiz
         /// </summary>
         /// <returns></returns>
-        private async Task StartQuizAsync()
+        private void StartQuiz()
         {
             // Hide start button
             IsStartVisible = false;
@@ -307,9 +215,11 @@ namespace Quiz.Core
             IsAnswerBVisible = true;
             IsAnswerCVisible = true;
             IsAnswerDVisible = true;
-
-            await Task.Delay(1);
         }
+
+        #endregion
+
+        #region Private Helpers
 
         /// <summary>
         /// Run to save results, show them to user and end the Quiz
@@ -332,14 +242,13 @@ namespace Quiz.Core
             IoC.UI.CloseApplication();
         }
 
-        #endregion
-
-        #region Private Helpers
-
+        /// <summary>
+        /// Called to load questions to the Quiz
+        /// </summary>
         private void DownloadQuestions()
         {
-            // Read lines in file
-            string[] readText = File.ReadAllLines(Constants.FILE_PATH, Encoding.Default);
+            // Load file array
+            var fileText = new FilePath().QuestionsFile;
 
             // Prepare variables
             int i = 1, points;
@@ -347,7 +256,7 @@ namespace Quiz.Core
             char rightAns;
 
             // Loop though lines
-            foreach (string line in readText)
+            foreach (string line in fileText)
             {
                 switch (i)
                 {
@@ -387,6 +296,10 @@ namespace Quiz.Core
             }
         }
 
+        /// <summary>
+        /// Shows question on the screen
+        /// </summary>
+        /// <param name="number">Indicate which question should be shown</param>
         private void ShowQuestion(int number)
         {
             // If method was miscalled with not valid number, return
@@ -400,6 +313,9 @@ namespace Quiz.Core
             this.AnswerD = QuestionList[number - 1].AnswerD;
         }
 
+        /// <summary>
+        /// Saves user score into file
+        /// </summary>
         private void SaveQuizToFile()
         {
             // Get the list of question numbers in string

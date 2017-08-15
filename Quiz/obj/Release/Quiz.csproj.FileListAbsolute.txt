@@ -46,3 +46,4 @@ C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\obj\Release\
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\obj\Release\Quiz.csproj.GenerateResource.Cache
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\obj\Release\Quiz.exe
 C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\obj\Release\Quiz.pdb
+C:\Users\MinorSonek\documents\visual studio 2017\Projects\Quiz\Quiz\obj\Release\Quiz.csproj.CoreCompileInputs.cache

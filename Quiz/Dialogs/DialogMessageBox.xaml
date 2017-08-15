@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:Quiz"
              mc:Ignorable="d">
     
+    <!-- Container for the message and button -->
     <StackPanel Background="{StaticResource ForegroundLightBrush}">
+        
+        <!-- Message -->
         <TextBlock Text="{Binding Message, FallbackValue=Message}"
                    Padding="5"
                    FontSize="{StaticResource FontSizeRegular}"
@@ -14,6 +17,7 @@
                    HorizontalAlignment="Center"
                    />
 
+        <!-- OK button -->
         <Button Content="{Binding OkText, FallbackValue=OK}"
                 FontSize="{StaticResource FontSizeAverage}"
                 Command="{Binding CloseCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BaseDialogUserControl}}}"

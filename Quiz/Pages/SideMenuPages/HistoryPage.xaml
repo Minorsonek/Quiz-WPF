@@ -1,4 +1,4 @@
-﻿<local:BasePage x:Class="Quiz.HistoryPage"
+﻿<local:BaseSideMenuPage x:Class="Quiz.HistoryPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,20 +9,27 @@
       Title="HistoryPage">
 
     <Grid DataContext="{x:Static core:AnswersViewModel.Instance}">
+        
+        <!-- Scroll viewer container for the list to allow scrolling -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Items}">
+                
+                <!-- Change default items panel to wraper to allow 4 items in the row -->
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                
+                <!-- Replace item template with actual item -->
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:AnswersItemControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
+                
             </ItemsControl>
         </ScrollViewer>
     </Grid>
     
-</local:BasePage>
+</local:BaseSideMenuPage>

@@ -19,5 +19,15 @@
         /// The page slides out and fades out to the left
         /// </summary>
         SlideAndFadeOutToLeft = 2,
+
+        /// <summary>
+        /// The page fades in
+        /// </summary>
+        FadeIn = 3,
+
+        /// <summary>
+        /// The page fades out
+        /// </summary>
+        FadeOut = 4
     }
 }

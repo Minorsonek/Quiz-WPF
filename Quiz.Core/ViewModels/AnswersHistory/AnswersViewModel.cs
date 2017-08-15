@@ -27,17 +27,5 @@ namespace Quiz.Core
         public ObservableCollection<AnswersItemViewModel> Items { get; set; }
 
         #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public AnswersViewModel()
-        {
-
-        }
-
-        #endregion
     }
 }

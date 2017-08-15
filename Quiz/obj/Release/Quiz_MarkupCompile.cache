@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\obj\Release\
+C:\Users\MinorSonek\documents\visual studio 2017\Projects\Quiz\Quiz\obj\Release\
 Quiz
 none
 false
 TRACE
-C:\Users\MinorSonek\Documents\Visual Studio 2017\Projects\Quiz\Quiz\App.xaml
+C:\Users\MinorSonek\documents\visual studio 2017\Projects\Quiz\Quiz\App.xaml
 16-629270852
 
-401566072502
-67-1738102862
+41-288205355
+671104784750
 Controls\AnswersHistory\AnswersItemControl.xaml;Controls\BubbleContent.xaml;Controls\Menu\VerticalMenu.xaml;Controls\PageHost.xaml;Controls\SideMenuControl.xaml;Dialogs\DialogMessageBox.xaml;DialogWindow.xaml;MainWindow.xaml;Pages\ApplicationPages\MainPage.xaml;Pages\ApplicationPages\RegisterPage.xaml;Pages\SideMenuPages\HistoryPage.xaml;Pages\SideMenuPages\HelpPage.xaml;Styles\Buttons.xaml;Styles\Texts.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;
 
 False

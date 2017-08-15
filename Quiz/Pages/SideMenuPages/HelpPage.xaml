@@ -1,4 +1,4 @@
-﻿<local:BasePage x:TypeArguments="core:SideMenuViewModel" x:Class="Quiz.HelpPage"
+﻿<local:BaseSideMenuPage x:TypeArguments="core:SideMenuViewModel" x:Class="Quiz.HelpPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,12 +9,13 @@
       Title="HelpPage">
 
     <Grid>
+        <!-- Text with help message -->
         <TextBlock Grid.Row="1" 
-                   Text="{Binding HelpText, FallbackValue=Wystapil blad przepraszamy Test test test test test}"
+                   Text="{Binding HelpText}"
                    TextTrimming="WordEllipsis"
                    TextWrapping="Wrap"
                    FontFamily="{StaticResource LatoRegular}"
                    FontSize="{StaticResource FontSizeMedium}"
                    Margin="20" />
     </Grid>
-</local:BasePage>
+</local:BaseSideMenuPage>
